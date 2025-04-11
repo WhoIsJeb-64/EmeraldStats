@@ -22,13 +22,13 @@ public class EmeraldStats extends JavaPlugin {
 
         Listener listener = new Listener(this);
 
-        log.info("EmeraldStats has Loaded!");
+        log.info("EmeraldStats has loaded!");
     }
 
     @Override
     public void onDisable() {
         playerMap.saveData();
-        log.info("EmeraldStats has Unloaded!");
+        log.info("EmeraldStats has unloaded!");
     }
 
     public PlayerMap PlayerMap() {
