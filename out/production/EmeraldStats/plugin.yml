@@ -1,0 +1,9 @@
+name: EmeraldStats
+main: org.perennial.pstats.EmeraldStats
+version: "1.0.0-SNAPSHOT"
+author: WhoIsJeb
+description: The statistic-tracking plugin for EmeraldMC.
+commands:
+  stats:
+    description: Test command
+    usage: /<command>
