@@ -17,6 +17,7 @@ public class EmeraldStats extends JavaPlugin {
         plugin = this;
         log = this.getServer().getLogger();
         playerMap = new PlayerMap(this);
+        getDataFolder().mkdirs();
 
         getCommand("stats").setExecutor(new StatsCommand(this));
 

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="EmeraldStats:jar">
+    <output-path>$USER_HOME$/Desktop/Servers/EmeraldMC/plugins</output-path>
+    <root id="archive" name="EmeraldStats.jar">
+      <element id="module-output" name="EmeraldStats" />
+    </root>
+  </artifact>
+</component>

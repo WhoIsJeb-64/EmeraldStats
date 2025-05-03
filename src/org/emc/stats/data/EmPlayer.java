@@ -1,7 +1,9 @@
 package org.emc.stats.data;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import org.json.simple.JSONObject;
 import org.emc.stats.EmeraldStats;
+import org.json.simple.JSONValue;
 
 import java.util.Date;
 
@@ -23,53 +25,45 @@ public class EmPlayer {
         this.messagesSent = messagesSent;
     }
 
-    //Create JSON for player
-    public JSONObject getJsonObject() {
-        JSONObject obj = new JSONObject();
+    public void savePlayer() {
+        FileConfiguration userFile = plugin.getConfig();
 
-        obj.put("name", this.name);
-        obj.put("firstJoin", this.firstJoin);
-        obj.put("blocksBroken", this.blocksBroken);
-        obj.put("blocksPlaced", this.blocksPlaced);
-        obj.put("messagesSent", this.messagesSent);
-
-        return obj;
-        }
+    }
 
     //Getters
-    public boolean isModified() {
-        return modified;
+    public static boolean isModified(EmPlayer player) {
+        return player.modified;
     }
 
-    public String getName() {
-        return name;
+    public static String getName(EmPlayer player) {
+        return player.name;
     }
 
-    public Date getFirstJoin() {
-        return new Date(this.firstJoin);
+    public static Date getFirstJoin(EmPlayer player) {
+        return new Date(player.firstJoin);
     }
 
-    public int getBlocksBroken() {
-        if (plugin.PlayerMap().getKnownPlayers().contains(name)) {
-            EmPlayer player = plugin.PlayerMap().getPlayer(name);
-            return player.blocksBroken;
-        }
-        return 0;
-    }
-    public int getBlocksPlaced() {
-        if (plugin.PlayerMap().getKnownPlayers().contains(name)) {
-            EmPlayer player = plugin.PlayerMap().getPlayer(name);
-            return player.blocksPlaced;
-        }
-        return 0;
-    }
-    public int getMessagesSent() {
-        if (plugin.PlayerMap().getKnownPlayers().contains(name)) {
-            EmPlayer player = plugin.PlayerMap().getPlayer(name);
-            return player.messagesSent;
-        }
-        return 0;
+    public static int getBlocksBroken(EmPlayer player) {
+        return player.blocksBroken;
     }
 
-    //Setters and Incrementers
+    public static int getBlocksPlaced(EmPlayer player) {
+        return player.blocksPlaced;
+    }
+    public static int getMessagesSent(EmPlayer player) {
+        return player.messagesSent;
+    }
+
+    public static void setBlocksBroken(EmPlayer player, int num) {
+        player.modified = true;
+        player.blocksBroken = num;
+    }
+    public static void setBlocksPlaced(EmPlayer player, int num) {
+        player.modified = true;
+        player.blocksPlaced = num;
+    }
+    public static void setMessagesSent(EmPlayer player, int num) {
+        player.modified = true;
+        player.messagesSent = num;
+    }
 }

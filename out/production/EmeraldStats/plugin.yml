@@ -1,9 +1,17 @@
 name: EmeraldStats
-main: org.perennial.pstats.EmeraldStats
+main: org.emc.stats.EmeraldStats
 version: "1.0.0-SNAPSHOT"
 author: WhoIsJeb
 description: The statistic-tracking plugin for EmeraldMC.
 commands:
   stats:
-    description: Test command
+    description: Displays the specified player's statistics.
     usage: /<command>
+    aliases:
+      - emcstats
+      - estats
+      - st
+    permission: emeraldstats.stats
+permissions:
+  emeraldstats.stats:
+    description: Grants access to /stats.
